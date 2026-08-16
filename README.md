@@ -115,10 +115,10 @@ Or copy this folder into your extensions directory:
 
 ```powershell
 # VS Code
-Copy-Item -Recurse . "$env:USERPROFILE\.vscode\extensions\ayu-newrage-1.0.0"
+Copy-Item -Recurse . "$env:USERPROFILE\.vscode\extensions\ayu-newrage-1.0.1"
 
 # Cursor
-Copy-Item -Recurse . "$env:USERPROFILE\.cursor\extensions\ayu-newrage-1.0.0"
+Copy-Item -Recurse . "$env:USERPROFILE\.cursor\extensions\ayu-newrage-1.0.1"
 ```
 
 Then `Ctrl+Shift+P` and Developer: Reload Window, `Ctrl+K Ctrl+T`, and pick
@@ -128,5 +128,5 @@ To build a `.vsix` instead:
 
 ```powershell
 npx @vscode/vsce package
-code --install-extension ayu-newrage-1.0.0.vsix
+code --install-extension ayu-newrage-1.0.1.vsix
 ```
