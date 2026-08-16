@@ -1,0 +1,39 @@
+{
+  "name": "ayu-newrage",
+  "displayName": "Ayu Newrage",
+  "description": "Mayukai Mirage UI with ayu Mirage syntax, gold cursors, and a calmer button.",
+  "version": "1.0.0",
+  "publisher": "walzengroup",
+  "license": "MIT",
+  "icon": "logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/walzen-group/ayu-newrage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/walzen-group/ayu-newrage/issues"
+  },
+  "homepage": "https://github.com/walzen-group/ayu-newrage#readme",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "ayu",
+    "mayukai",
+    "mirage",
+    "dark",
+    "theme"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Ayu Newrage",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ayu-newrage-color-theme.json"
+      }
+    ]
+  }
+}

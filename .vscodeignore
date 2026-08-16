@@ -1,0 +1,7 @@
+.vscode/**
+.claude/**
+.git/**
+.gitignore
+.gitattributes
+node_modules/**
+*.vsix
