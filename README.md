@@ -26,7 +26,7 @@ ayu Mirage supplies everything inside the code:
 |---|---|
 | `tokenColors` | 65 rules, ayu's set replacing Mayukai's 92 |
 | `semanticTokenColors` | ayu's 21 rules; semantic highlighting is on (Mayukai ships none) |
-| git decorations | ayu's semantics: modified `#80bfff`, untracked `#87d96c`, deleted `#f27983`. Mayukai had modified green and untracked red |
+| git decorations | ayu's semantics: modified `#80bfff`, untracked `#87d96c`, deleted `#f27983`. Mayukai had modified green and untracked red. Added, renamed and the staged variants are new here |
 | `editorCursor.foreground` | `#ffcc66` gold, replacing Mayukai's red `#ff4057` |
 | `terminalCursor.foreground` | `#ffcc66`, matching the editor cursor |
 | `editorMultiCursor.*` | `#ffcc66` |
@@ -61,6 +61,29 @@ white now, and every one clears AAA:
 The gold top border and the background step from `#191e2a` to `#1f2430` tell
 active and inactive tabs apart, rather than a dimmed label. Dimming is what put
 Mayukai's inactive tabs below AA to begin with.
+
+### Git decorations
+
+ayu and Mayukai both set only modified, deleted and untracked. The other four
+decoration slots fell through to VS Code's built-in dark defaults, which are the
+stock red/amber/green set and ignore the theme entirely. `A` and `U` in the
+explorer both landed on a green, because untracked was ayu's `#87d96c` and added
+was the default `#81b88b`. All seven are explicit now:
+
+| | | on `#191e2a` |
+|---|---|---|
+| `modifiedResourceForeground` | `#80bfff` | 8.58:1 |
+| `stageModifiedResourceForeground` | `#80bfff` | 8.58:1 |
+| `addedResourceForeground` | `#bae67e` | 11.67:1 |
+| `untrackedResourceForeground` | `#87d96c` | 9.66:1 |
+| `renamedResourceForeground` | `#93e2c8` | 11.07:1 |
+| `deletedResourceForeground` | `#f27983` | 6.22:1 |
+| `stageDeletedResourceForeground` | `#f27983` | 6.22:1 |
+
+Added and untracked stay in the green family because both mean new content, but
+added is ayu's yellow-green against untracked's leaf green, so the two badges
+read apart. Staged modify and delete match their unstaged counterparts; the
+badge letter carries the staging, not the hue.
 
 ### Menus
 
