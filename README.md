@@ -153,3 +153,44 @@ To build a `.vsix` instead:
 npx @vscode/vsce package
 code --install-extension ayu-newrage-1.0.1.vsix
 ```
+
+## Publishing
+
+Published to the VS Code Marketplace as `WalzenGroup.ayu-newrage`. Not on Open
+VSX, so VSCodium and Cursor users take the `.vsix` route above.
+
+One-time setup: create a Personal Access Token at `https://dev.azure.com`, scoped
+to Marketplace > Manage under all accessible organizations, then either
+
+```powershell
+npx @vscode/vsce login walzengroup
+```
+
+or set `$env:VSCE_PAT` to the token and skip the login. `npx @vscode/vsce
+verify-pat walzengroup` checks a token you already have. Azure PATs expire, one
+year maximum, so a failed publish is usually just an expired token.
+
+Each release:
+
+```powershell
+# 1. bump version, make the commit and tag locally
+npm version patch
+
+# 2. build, then check what actually went in the box
+npx @vscode/vsce package
+npx @vscode/vsce ls
+
+# 3. upload
+npx @vscode/vsce publish
+```
+
+`npx @vscode/vsce publish patch` collapses steps 1 and 3: it shells out to `npm
+version`, which writes the version commit and tag, then uploads. Neither form
+pushes anything, so the tag stays local until you push it. `--no-git-tag-version`
+gives you the version bump with no commit.
+
+Marketplace listings take a few minutes to show the new version, and installed
+copies pick it up on VS Code's own update schedule.
+
+Two things carry the version by hand and need editing at bump time: the folder
+names in the Install section above, and the `.vsix` filename in the same block.
